@@ -1,4 +1,4 @@
-require 'capybara/rspec'
+require 'spec_helper'
 
 # USER STORY ONE
 # As two Players,
@@ -7,9 +7,9 @@ require 'capybara/rspec'
 feature 'Enter names' do
   scenario 'so two players can play a personalized battle, they can enter their names and see them.' do
     visit('/')
-    fill_in :player_1_name, with: 'Marcus'
+    fill_in :player_1_name, with: 'Vicky'
     fill_in :player_2_name, with: 'Joe'
     click_button 'Submit'
-    expect(page).to have_content 'Marcus vs Joe'
+    expect(page).to have_content 'Vicky vs Joe'
   end
 end
