@@ -3,8 +3,8 @@
   body {
     height: 100%;
     width: 100%;
-    background-image: url("http://www.trmk.org/images/mkarmageddon/MKA_MeteorStorm_Arena.jpg");
-    bockground-repeat: no-repeat;
+    background-image: url("http://images2.alphacoders.com/204/204780.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
     color: white;
     text-align: center;
@@ -15,3 +15,7 @@
 <h2><%= @player_1_name %> vs <%= @player_2_name %></h2>
 <p><%= @player_1_name %>:  <%=MAX_HEALTH%>/<%=MAX_HEALTH%> HP</p>
 <p><%= @player_2_name %>:  <%=MAX_HEALTH%>/<%=MAX_HEALTH%> HP</p>
+
+<form action="/attack" method="post">
+    <input type="submit" value="ATTACK!">
+</form>
