@@ -7,10 +7,6 @@ require 'spec_helper'
 feature 'Enter names' do
   scenario 'so two players can play a personalized battle, they can enter their names and see them.' do
     sign_in_and_play
-    # visit('/')
-    # fill_in :player_1_name, with: 'Vicky'
-    # fill_in :player_2_name, with: 'Joe'
-    # click_button 'Submit'
     expect(page).to have_content 'Vicky vs Joe'
   end
 end
@@ -22,10 +18,19 @@ end
 feature 'Hit points' do
   scenario "so player 1 knows how close they are to winning, player 1 can see player 2's hp" do
     sign_in_and_play
-    # visit('/')
-    # fill_in :player_1_name, with: 'Vicky'
-    # fill_in :player_2_name, with: 'Joe'
-    # click_button 'Submit'
     expect(page).to have_content ' HP'
+  end
+end
+
+
+# USER STORY THREE
+# As Player 1,
+# So I can win a game of Battle,
+# I want to attack Player 2, and I want to get a confirmation
+feature 'attack' do
+  scenario "so player 1 can win, player 1 can attack player 2 and get confirmation" do
+    sign_in_and_play
+    click_button 'ATTACK!'
+    expect(page).to have_content 'You have attacked your opponent!'
   end
 end
