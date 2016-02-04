@@ -15,4 +15,5 @@ describe Player do
       expect(player.take_hit).to eq 55
     end
   end
+
 end
