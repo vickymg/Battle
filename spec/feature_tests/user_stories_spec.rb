@@ -34,3 +34,15 @@ feature 'attack' do
     expect(page).to have_content 'You have attacked your opponent!'
   end
 end
+
+# USER STORY FOUR
+# As Player 1,
+# So I can start to win a game of Battle,
+# I want my attack to reduce Player 2's HP
+feature 'reduce health points' do
+  scenario "player 1 attacks player 2, player 2 loses health points" do
+    sign_in_and_play
+    click_button 'ATTACK!'
+    expect(page).to have_content '55 HP'
+  end
+end
