@@ -9,11 +9,21 @@ describe Game do
   describe "#attack" do
 
     before do
-      allow(player_1).to receive(:take_hit).and_return(55)
+      allow(player_1).to receive(:take_hit).and_return(false)
     end
 
     it 'attacks player' do
-      expect(game.attack(player_1)).to eq(55)
+      expect(game.attack).to eq(false)
+    end
+
+    it 'attacks player' do
+      game.attack
+      expect(game.attack).to eq(true)
+    end
+
+    it 'checks if the player is dead after attack' do
+      12.times { game.player_1.take_hit }
+      expect(game.player_1).to be_dead
     end
   end
 

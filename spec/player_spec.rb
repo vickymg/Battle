@@ -16,4 +16,9 @@ describe Player do
     end
   end
 
+  it 'checks if the player is dead after attack' do
+    12.times { player.take_hit }
+    expect(player).to be_dead
+  end
+
 end
