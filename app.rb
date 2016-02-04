@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/player'
+require './lib/game'
 
 class Battle < Sinatra::Base
 
@@ -16,21 +17,13 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player_1_name = $new_game.player_1.name
-    @player_2_name = $new_game.player_2.name
-    @player_1_HP = $new_game.player_1.hit_points
-    @player_2_HP = $new_game.player_2.hit_points
+    @new_game = $new_game
     erb(:play)
   end
 
   get '/attack_confirmation' do
-    @player_1 = $new_game.player_1
-    @player_2 = $new_game.player_2
-    @player_1_name = $new_game.player_1.name
-    @player_2_name = $new_game.player_2.name
-    $new_game.attack(@player_2)
-    @player_1_HP = $new_game.player_1.hit_points
-    @player_2_HP = $new_game.player_2.hit_points
+    @new_game = $new_game
+    @new_game.attack#(@new_game.player_2)
     erb(:attack_confirmation)
   end
 

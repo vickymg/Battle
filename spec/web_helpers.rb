@@ -4,3 +4,10 @@ def sign_in_and_play
   fill_in :player_2_name, with: 'Joe'
   click_button 'Submit'
 end
+
+def nearly_kill_vicky
+  11.times do
+    click_button 'ATTACK VICKY!'
+    click_button 'ATTACK JOE!'
+  end
+end
