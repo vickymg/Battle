@@ -4,12 +4,20 @@
   <p><%= @new_game.player_1.name %>:  <%=@new_game.player_1.hit_points%> HP</p>
   <p><%= @new_game.player_2.name %>:  <%=@new_game.player_2.hit_points%> HP</p>
 
-  <%if @new_game.attacker%>
+  <%if @new_game.game_over%>
+    <h1>Player <%=@new_game.winner.name.upcase%> wins!</h1>
+    <form action="/game_over">
+        <input type="submit" value="VICTORY!">
+    </form>
+
+  <%elsif @new_game.attacker%>
   <form action="/attack_confirmation">
       <input type="submit" value="ATTACK <%=@new_game.player_1.name.upcase%>!">
   </form>
+
   <%else%>
   <form action="/attack_confirmation">
       <input type="submit" value="ATTACK <%=@new_game.player_2.name.upcase%>!">
   </form>
+
   <%end%>

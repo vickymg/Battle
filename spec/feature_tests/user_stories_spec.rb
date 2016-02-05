@@ -69,6 +69,6 @@ feature 'lose game' do
     sign_in_and_play
     nearly_kill_vicky
     click_button 'ATTACK VICKY!'
-    expect(page).to have_content 'Joe wins! Vicky is dead :-('
+    expect(page).to have_content 'JOE wins!'
   end
 end
