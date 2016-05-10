@@ -30,7 +30,45 @@ end
 feature 'attack' do
   scenario "so player 1 can win, player 1 can attack player 2 and get confirmation" do
     sign_in_and_play
-    click_button 'ATTACK!'
+    click_button 'ATTACK VICKY!'
     expect(page).to have_content 'You have attacked your opponent!'
+  end
+end
+
+# USER STORY FOUR
+# As Player 1,
+# So I can start to win a game of Battle,
+# I want my attack to reduce Player 2's HP
+feature 'reduce health points' do
+  scenario "player 1 attacks player 2, player 2 loses health points" do
+    sign_in_and_play
+    click_button 'ATTACK VICKY!'
+    expect(page).to have_content '55 HP'
+  end
+end
+
+# USER STORY FIVE
+# As two Players,
+# So we can continue our game of Battle,
+# We want to switch turns
+feature 'switch turns' do
+  scenario "players switch turns" do
+    sign_in_and_play
+    click_button 'ATTACK VICKY!'
+    click_button 'ATTACK JOE!'
+    expect(page).to have_content '55 HP'
+  end
+end
+
+# USER STORY SIX
+# As a Player,
+# So I can Lose a game of Battle,
+# I want to see a 'Lose' message if I reach 0HP first
+feature 'lose game' do
+  scenario "lose message if no health points" do
+    sign_in_and_play
+    nearly_kill_vicky
+    click_button 'ATTACK VICKY!'
+    expect(page).to have_content 'JOE wins!'
   end
 end

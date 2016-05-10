@@ -1,21 +1,7 @@
-<head>
-  <style>
-  body {
-    height: 100%;
-    width: 100%;
-    background-image: url("http://images2.alphacoders.com/204/204780.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    text-align: center;
-  }
-  </style>
-</head>
+<h2><%= @new_game.player_1.name %> vs <%= @new_game.player_2.name %></h2>
+<p><%= @new_game.player_1.name %>:  <%=@new_game.player_1.hit_points%> HP</p>
+<p><%= @new_game.player_2.name %>:  <%=@new_game.player_2.hit_points%> HP</p>
 
-<h2><%= @player_1_name %> vs <%= @player_2_name %></h2>
-<p><%= @player_1_name %>:  <%=MAX_HEALTH%>/<%=MAX_HEALTH%> HP</p>
-<p><%= @player_2_name %>:  <%=MAX_HEALTH%>/<%=MAX_HEALTH%> HP</p>
-
-<form action="/attack" method="post">
-    <input type="submit" value="ATTACK!">
+<form action="/attack_confirmation">
+    <input type="submit" value="ATTACK <%=@new_game.player_1.name.upcase%>!">
 </form>

@@ -1,15 +1,23 @@
-<head>
-  <style>
-  body {
-    height: 100%;
-    width: 100%;
-    background-image: url("http://imageweb-cdn.magnoliasoft.net/leedsartgallery/supersize/lmg100000.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    text-align: center;
-  }
-  </style>
-</head>
 
-<h1>You have attacked your opponent!</h1>
+  <h1>You have attacked your opponent!</h1>
+
+  <p><%= @new_game.player_1.name %>:  <%=@new_game.player_1.hit_points%> HP</p>
+  <p><%= @new_game.player_2.name %>:  <%=@new_game.player_2.hit_points%> HP</p>
+
+  <%if @new_game.game_over%>
+    <h1>Player <%=@new_game.winner.name.upcase%> wins!</h1>
+    <form action="/game_over">
+        <input type="submit" value="VICTORY!">
+    </form>
+
+  <%elsif @new_game.attacker%>
+  <form action="/attack_confirmation">
+      <input type="submit" value="ATTACK <%=@new_game.player_1.name.upcase%>!">
+  </form>
+
+  <%else%>
+  <form action="/attack_confirmation">
+      <input type="submit" value="ATTACK <%=@new_game.player_2.name.upcase%>!">
+  </form>
+
+  <%end%>
