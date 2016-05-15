@@ -5,6 +5,16 @@ Week 3 Makers Academy
 
 Task: build a battle game in the browser using Ruby, Sinatra, RSpec & Capybara
 
+To run this program:
+```
+$ git clone https://github.com/vickymg/Battle.git
+$ cd Battle
+$ bundle
+$ ruby app.rb
+
+```
+Open browser at http://localhost:4567/ and Battle!
+
 User stories:
 
 ```
