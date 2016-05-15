@@ -3,7 +3,6 @@ class Game
   attr_reader :player_1, :player_2, :attacker, :game_over, :looser, :winner
 
   def initialize(player_1, player_2, player_klass = Player)
-    # @player_klass = player_klass
     @player_1 = player_klass.new(player_1)
     @player_2 = player_klass.new(player_2)
     @attacker = true
